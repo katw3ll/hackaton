@@ -29,9 +29,6 @@ def timestamptodate(timestamp):
 
 
 def create_file(location_latitude, location_longitude, distance, min_timestamp, max_timestamp, date_increment):
-        print('Starting parse vk..')
-        print('location:', location_latitude, location_longitude)
-        print('time: from', timestamptodate(min_timestamp), 'to', timestamptodate(max_timestamp))
        # file_vk = open('vk_pars_' + location_latitude + location_longitude + '.txt', 'w')
         local_min_timestamp = min_timestamp
         while (1):
@@ -40,7 +37,6 @@ def create_file(location_latitude, location_longitude, distance, min_timestamp, 
             local_max_timestamp = local_min_timestamp + date_increment
             if (local_max_timestamp > max_timestamp):
                 local_max_timestamp = max_timestamp
-            print(timestamptodate(local_min_timestamp), '-', timestamptodate(local_max_timestamp))
             vk_json = json.loads(
                 get_vk(location_latitude, location_longitude, distance, local_min_timestamp, local_max_timestamp))
             for local_i in vk_json['response']:
