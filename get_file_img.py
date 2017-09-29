@@ -32,7 +32,7 @@ def create_file(location_latitude, location_longitude, distance, min_timestamp, 
         print('Starting parse vk..')
         print('location:', location_latitude, location_longitude)
         print('time: from', timestamptodate(min_timestamp), 'to', timestamptodate(max_timestamp))
-        file_vk = open('vk_pars_' + location_latitude + location_longitude + '.txt', 'w')
+       # file_vk = open('vk_pars_' + location_latitude + location_longitude + '.txt', 'w')
         local_min_timestamp = min_timestamp
         while (1):
             if (local_min_timestamp >= max_timestamp):
@@ -46,9 +46,10 @@ def create_file(location_latitude, location_longitude, distance, min_timestamp, 
             for local_i in vk_json['response']:
                 if type(local_i) is int:
                     continue
-                file_vk.write(local_i['src_big'] + '\n')
+                #file_vk.write(local_i['src_big'] + '\n')
+                print(local_i['src_big'] + '\n')
             local_min_timestamp = local_max_timestamp
-        file_vk.close()
+       # file_vk.close()
 
 
 create_file(location_latitude, location_longitude, distance, min_timestamp, max_timestamp, date_increment)
