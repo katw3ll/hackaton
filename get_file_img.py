@@ -19,7 +19,6 @@ def get_vk(latitude, longitude, distance, min_timestamp, max_timestamp):
     get_request+= '&radius=' + distance
     get_request+= '&start_time=' + str(min_timestamp)
     get_request+= '&end_time=' + str(max_timestamp)
-    print (get_request)
     local_connect = HTTPSConnection('api.vk.com', 443)
     local_connect.request('GET', get_request)
     return local_connect.getresponse().read()
